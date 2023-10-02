@@ -9,7 +9,7 @@ try {
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     // SQL sorgusunu hazırla
-    $sql = "SELECT * FROM `customer`";
+    $sql = "SELECT * FROM `customer` WHERE `status`=1";
 
     // Sorguyu hazırla
     $stmt = $conn->prepare($sql);

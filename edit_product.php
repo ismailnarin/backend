@@ -2,7 +2,8 @@
 include_once 'config.php';
 
 // JSON verisini alın ve PHP nesnesine çevirin
-$data = json_decode(file_get_contents("php://input"));  
+$data = json_decode(file_get_contents("php://input")); 
+// echo "<pre>";print_r($data);
 $product_packages = json_encode($data->packages);
 
 try {
@@ -39,7 +40,7 @@ try {
     $stmt->bindParam(':product_card', $data->productCard);
     $stmt->bindParam(':product_cash', $data->productCash);
     $stmt->bindParam(':package_status', $data->openPackageStatus);
-    $stmt->bindParam(':product_packages', $packages);
+    $stmt->bindParam(':product_packages', $product_packages);
     $stmt->bindParam(':product_bonus_id', $data->productBonus);
     $stmt->bindParam(':product_bonus_price', $data->productBonusPrice);
     $stmt->bindParam(':product_photo', $data->productPhoto);
